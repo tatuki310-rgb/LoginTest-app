@@ -1,0 +1,20 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito:
+            client-id: ${COGNITO_CLIENT_ID:23i69jlvuip7ortbb4d62vslor}
+            client-secret: ${COGNITO_CLIENT_SECRET:dpnu870mihcte3h4f8s6gkiirkiq2vcm331bqim3jb1943h99m4}
+            scope: openid, email, profile
+            redirect-uri: "http://localhost:8080/login/oauth2/code/cognito"
+            authorization-grant-type: authorization_code
+            provider: cognito
+        provider:
+          cognito:
+            # Replace {region} and {poolId} with your specific AWS Cognito values
+            issuer-uri: https://cognito-idp.ap-northeast-1.amazonaws.com/ap-northeast-1_WY155zdIC
+            # user-name-attribute: username # Default is 'sub' which is safer
+
+server:
+  port: 8080

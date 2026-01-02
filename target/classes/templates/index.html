@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome, <span th:text="${name}">User</span>!</h1>
+    <p>Email: <span th:text="${email}">user@example.com</span></p>
+    
+    <h2>User Attributes:</h2>
+    <ul>
+        <li th:each="attr : ${attributes}">
+            <strong th:text="${attr.key}">Key</strong>: <span th:text="${attr.value}">Value</span>
+        </li>
+    </ul>
+
+    <form method="post" th:action="@{/logout}">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
